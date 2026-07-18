@@ -55,10 +55,12 @@
 
 .date-field {
   flex: 1.3;
+  min-width: 0;
 }
 
 .passenger-field {
   flex: 1.3;
+  min-width: 0;
 }
 
 .search-action-container {
@@ -67,6 +69,7 @@
 
 .search-input {
   width: 100%;
+  min-width: 0;
   padding: var(--space-sm) var(--space-md);
   font-size: var(--text-base);
   color: var(--text-primary);
@@ -75,6 +78,20 @@
   border-radius: var(--radius-md);
   height: 48px;
   transition: all var(--transition-fast);
+}
+
+/* Fix iOS Safari native date picker width and layout issues */
+input[type="date"] {
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+input[type="date"]::-webkit-datetime-edit {
+  display: flex;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .search-input:focus {
@@ -359,11 +376,18 @@
   .date-field {
     grid-column: span 1;
     width: 100%;
+    min-width: 0;
+  }
+
+  .date-field .search-input {
+    padding-left: var(--space-sm);
+    padding-right: var(--space-sm);
   }
 
   .passenger-field {
     grid-column: span 1;
     width: 100%;
+    min-width: 0;
   }
 
   .search-action-container {

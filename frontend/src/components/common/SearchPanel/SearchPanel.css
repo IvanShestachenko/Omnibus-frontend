@@ -82,6 +82,9 @@
 
 /* Fix iOS Safari native date picker width and layout issues */
 input[type="date"] {
+  -webkit-appearance: none;
+  appearance: none;
+  display: block;
   min-width: 0;
   width: 100%;
   box-sizing: border-box;
@@ -92,6 +95,12 @@ input[type="date"]::-webkit-datetime-edit {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+input[type="date"]::-webkit-date-and-time-value {
+  display: block;
+  min-height: 20px;
+  text-align: left;
 }
 
 .search-input:focus {
